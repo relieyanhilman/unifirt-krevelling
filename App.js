@@ -1,22 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, SafeAreaView } from 'react-native';
+import { Dimensions, StyleSheet, Text, TouchableNativeFeedback, View, Alert, Image, SafeAreaView, Button, Platform, StatusBar } from 'react-native';
+import {useDimensions, useDeviceOrientation} from '@react-native-community/hooks';
+import WelcomeScreen from './app/screens/WelcomeScreen';
 
 export default function App() {
-  
-  return (
-    <SafeAreaView style={styles.container}>
-      <Text numberOfLines={1}>Hello ges</Text>
-      <Image 
-      source={require("./assets/logo-krevelling.png")} />
-    </SafeAreaView>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: "center",
-    alignItems: "center",
-  }
-});
+ return (
+   <WelcomeScreen />
+ );
+};
