@@ -1,12 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image, SafeAreaView } from 'react-native';
 
 export default function App() {
+  
   return (
-    <View style={styles.container}>
-      <Text>Hello React Nat</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Text numberOfLines={1}>Hello ges</Text>
+      <Image 
+      source={require("./assets/logo-krevelling.png")} />
+    </SafeAreaView>
   );
 }
 
@@ -14,7 +16,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    justifyContent: "center",
+    alignItems: "center",
+  }
 });
