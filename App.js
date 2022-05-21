@@ -2,9 +2,11 @@ import { Dimensions, StyleSheet, Text, TouchableNativeFeedback, View, Alert, Ima
 import {useDimensions, useDeviceOrientation} from '@react-native-community/hooks';
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import Home from './screens/Home';
+import Login from './screens/Login';
+import Recommendation from './screens/Recommendation';
 
 export default function App() {
  return (
-   <Home />
+   <Recommendation/>
  );
 };
