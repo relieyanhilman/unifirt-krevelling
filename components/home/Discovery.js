@@ -71,7 +71,7 @@ const DiscoveryOption = (props) => (
             color: "white",
             fontWeight: "bold",
             fontSize: 16,
-            left: -4,
+            marginHorizontal: -4,
           }}
         >
           {props.text}
