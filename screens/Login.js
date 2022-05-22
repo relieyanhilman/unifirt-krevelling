@@ -1,10 +1,63 @@
 import { StyleSheet, Text, View, ImageBackground, Image, TextInput, Button, TouchableOpacity } from 'react-native'
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 // import { LoginImage } from '../../assets'
 import { StatusBar } from 'expo-status-bar';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { authentication } from '../firebase/firebase';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+
+
 
 const Login = () => {
+
+
+  // TEST FIREBASE
+
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const [isSignedIn, setIsSignedIn] = useState(false)
+
+  const handleSignUp = () => {
+    auth.createUserWithEmailAndPassword(email, password)
+    .then(userCredentials => {
+      const user  = userCredentials.user;
+      console.log("Registered with email: ", user.email);
+    })
+    .catch(error => allert(error.message))
+  }
+
+  const registerUser = () => {
+    createUserWithEmailAndPassword(authentication, email, password)
+    .then((re)=>{
+      console.log(re);
+    })
+    .catch((re)=>{
+      console.log(re);})
+    }
+
+  const signInUser = () => {
+    signInWithEmailAndPassword(authentication, email, password)
+    .then((re)=>{
+      setIsSignedIn(true);
+    })
+    .catch((re)=>{
+      console.log(re);})
+    }
+
+  const signOutUser = () => {
+    signOut(authentication)
+    .then((re)=>{
+      setIsSignedIn(false);
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+  }
+
+
+// TEST FIREBASE
+
 
   return (
     
@@ -17,18 +70,35 @@ const Login = () => {
             </View>
             <View style={styles.inputView}>
               <TextInput style={styles.TextInput}
-                placeholder="Email or Username"
-                placeholderTextColor="#b9b9b9"/>
+                placeholder="Email"
+                placeholderTextColor="#b9b9b9"
+                onChangeText={text => setEmail(text)}/>
             </View>
             <View style={styles.inputView}>
               <TextInput style={styles.TextInput}
                 placeholder="Password"
                 placeholderTextColor="#b9b9b9"
-                secureTextEntry={true}/>
+                secureTextEntry={true}
+                onChangeText={text => setPassword(text)}/>
             </View>
-            <TouchableOpacity style={styles.loginBtn}>
-              <Text style={[styles.loginText, styles.fontLogin]}>LOGIN</Text>
-            </TouchableOpacity>
+
+              {/* <View> */}
+                {
+                  isSignedIn === true ?
+                  <TouchableOpacity style={styles.loginBtn} onPress={signOutUser}>
+                  <Text style={[styles.loginText, styles.fontLogin]}>LOGOUT</Text>
+                  </TouchableOpacity>
+                :
+                  <TouchableOpacity style={styles.loginBtn} onPress={signInUser}>
+                  <Text style={[styles.loginText, styles.fontLogin]}>LOGIN</Text>
+                  </TouchableOpacity>
+
+                }
+              <TouchableOpacity style={styles.registerBtn} onPress={registerUser}>
+                <Text style={[styles.loginText, styles.fontLogin]}>REGISTER</Text>
+              </TouchableOpacity>
+
+              {/* </View> */}
           </ImageBackground>
         </View>
 
@@ -84,8 +154,19 @@ const styles = StyleSheet.create({
       alignItems:"center",
       justifyContent:"center",
       marginTop:30,
-      backgroundColor:"#9DDAF4"
+      backgroundColor:"#33C0F4",
+      marginBottom:-20,
+      marginTop:0,
  },
+    registerBtn: {
+      width:"50%",
+      borderRadius:10,
+      height:50,
+      alignItems:"center",
+      justifyContent:"center",
+      marginTop:30,
+      backgroundColor:"#9DDAF4"
+},
       fontCard: {
         fontFamily: 'Roboto',
       },

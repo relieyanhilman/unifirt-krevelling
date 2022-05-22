@@ -22,7 +22,8 @@ import Recommendation from "./screens/Recommendation";
 import RootNavigation from "./navigation";
 import ItineraryLocDate from "./screens/ItineraryLocDate";
 import AddItinerary from "./screens/AddItinerary";
+import SignUp from "./screens/SignUp";
 
 export default function App() {
-  return <RootNavigation />;
+  return <Login />;
 }
