@@ -21,5 +21,5 @@ import Login from "./screens/Login";
 import Recommendation from "./screens/Recommendation";
 
 export default function App() {
-  return <Home />;
+  return <Recommendation />;
 }

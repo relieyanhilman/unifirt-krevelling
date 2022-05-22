@@ -25,7 +25,7 @@ export default function RecommendedPlaces() {
   );
 }
 
-const LocationOptions = (props) => (
+export const LocationOptions = (props) => (
   <View style={{ marginBottom: 15 }}>
     <TouchableOpacity>
       <Image
