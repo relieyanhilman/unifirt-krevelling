@@ -129,7 +129,7 @@ export const LocationDatePicker = ({ navigation }) => {
         title="Next"
         style={styles.button}
         // onClick={() => onPressNext(location, startInput.date, endInput.date)
-        onPress={() => navigation.navigate("AddItinerary")}
+        onPress={() => onPressNext(location, startInput.date.toLocaleDateString(), endInput.date.toLocaleDateString())}
       />
     </View>
   );

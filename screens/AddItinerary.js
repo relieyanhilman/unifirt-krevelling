@@ -14,28 +14,53 @@ import {
   Image,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
+import PlacePicker from "../components/itinerary/PlacePicker";
 
 export default function AddItinerary({ route, navigation }) {
   return (
+    // <View style={styles.container}>
+    //   <StatusBar style="auto" />
+    //   <ImageBackground
+    //     source={require("../assets/images/particleBackground.png")}
+    //     style={styles.background}
+    //   >
+    //     <Text style={styles.HeaderFont}>Itinerary</Text>
+    //     <View style={{display: "flex",
+    //       flexDirection: "column",
+    //       justifyContent: "space-between",
+    //       flexWrap: "wrap",
+    //       alignItems: "center",}}>
+    //       <View style={{ marginTop: 80, marginVertical: 10, alignItems: "center" }}>
+    //         <PlacePicker />
+    //       </View>
+    //       <View style={{ marginVertical: 10, alignItems: "center" }}>
+    //         <PlacePicker />
+    //       </View>
+    //     </View>
+    //     <Text style={styles.text}>Day 1 Itinerary Bali's Trip</Text>
+    //   </ImageBackground>
+    // </View>
     <View style={styles.container}>
-      <StatusBar style="auto" />
-      <ImageBackground
-        source={require("../assets/images/particleBackground.png")}
-        style={styles.background}
+      <Text style={styles.HeaderFont}>Itinerary</Text>
+      <Text style={styles.subHeaderFont}>Day 1 Bali's Itinerary</Text>
+      <Text style={styles.text2}>Main Places</Text>
+      <View
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          flexWrap: "wrap",
+          marginVertical: 20,
+          marginTop: -350,
+        }}
       >
-        <ScrollView>
-          <Image
-            source={require("../assets/images/backButton.png")}
-            style={styles.backButton}
-          />
-          <Text style={styles.HeaderFont}>Itinerary</Text>
-
-          <View>
-            {/* <Text>{navigation.getParam("location")}</Text> */}
-            <Text>testing</Text>
-          </View>
-        </ScrollView>
-      </ImageBackground>
+        <View>
+          <PlacePicker />
+        </View>
+        <View>
+          <PlacePicker />
+        </View>
+      </View>
     </View>
   );
 }
@@ -59,68 +84,17 @@ const styles = StyleSheet.create({
     left: 51,
     top: 56,
   },
-  backButton: {
-    top: 55,
-    left: 10,
-    position: "absolute",
+  text: {
+    marginVertical: 15,
+    alignItems: "center",
   },
-  card: {
-    borderRadius: 24,
-    height: 158,
-    width: 340,
-    top: 103,
-    left: 30,
-    shadowColor: "#000",
-    shadowOpacity: 0.5,
-    shadowRadius: 16,
-    marginBottom: -90,
+  text2: {
+    fontSize: 20,
+    fontWeight: "700",
   },
-  paddingText: {
-    padding: 15,
-    backgroundColor: "black",
-    top: 164,
-    width: 340,
-    left: 30,
-    borderBottomLeftRadius: 24,
-    borderBottomRightRadius: 24,
-    opacity: 0.5,
-  },
-  textCard: {
-    color: "white",
-    top: 135,
-    width: 321,
-    left: 55,
-    fontSize: 16,
-    fontWeight: "600",
-    lineHeight: 21,
-  },
-  priceText: {
-    color: "white",
-    fontWeight: "500",
-    fontSize: 10,
-    left: 165,
-    top: 120,
-  },
-  rating: {
-    top: 105,
-    left: 290,
-  },
-  review: {
-    top: 97,
-    left: 290,
-  },
-  ratingText: {
-    top: 95,
-    left: 300,
-    fontSize: 8,
-    color: "white",
-    textDecorationLine: "underline",
-  },
-  reviewText: {
-    textDecorationLine: "underline",
-    top: 85,
-    left: 300,
-    fontSize: 8,
-    color: "white",
+  subHeaderFont: {
+    fontSize: 18,
+    fontWeight: "700",
+    color: "#33C0F4",
   },
 });
