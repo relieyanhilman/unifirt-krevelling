@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     text: {
       marginVertical: 15,
       fontSize: 14,
-      // textAlign: "left",
+      textAlign: "left",
       color: "#B9B9B9",
       fontWeight: "bold",
     },
