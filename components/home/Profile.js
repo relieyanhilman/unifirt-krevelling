@@ -5,7 +5,6 @@ export default function Profile() {
   return (
     <View
       style={{
-        marginTop: 10,
         display: "flex",
         flexDirection: "row",
         borderRadius: 15,
