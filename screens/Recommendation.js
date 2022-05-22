@@ -1,8 +1,10 @@
-import { View, Text, ImageBackground } from "react-native";
+import { View, Text, ImageBackground, ScrollView } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
-import { LocationOptions } from "../components/home/RecommendedPlaces";
+import RecommendedPlaces from "../components/home/RecommendedPlaces";
+import RecommendationInBali from "../components/recommendation/RecommendationInBali";
+
 export default function Recommendation() {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
@@ -12,15 +14,9 @@ export default function Recommendation() {
         resizeMode="cover"
         style={{ flex: 1 }}
       >
-        <View style={{ marginHorizontal: 10 }}>
-          <LocationOptions
-            image={require("../assets/images/monas.jpg")}
-            location={"Gambir, Central Jakarta"}
-            price={150000}
-            rating={4.8}
-            reviews={2873}
-          />
-        </View>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <RecommendationInBali/>
+        </ScrollView>
       </ImageBackground>
     </SafeAreaView>
   );
