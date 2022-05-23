@@ -6,7 +6,7 @@ import Discovery from "../components/home/Discovery";
 import RecommendedPlaces from "../components/home/RecommendedPlaces";
 import { StatusBar } from "expo-status-bar";
 
-export default function Home({ navigation }) {
+export default function Home({ navigation, route }) {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
       <StatusBar style="auto" />
@@ -16,7 +16,7 @@ export default function Home({ navigation }) {
         style={{ flex: 1 }}
       >
         <ScrollView showsVerticalScrollIndicator={false}>
-          <Profile />
+          <Profile route={route} />
           <Discovery navigation={navigation} />
           <RecommendedPlaces navigation={navigation} />
         </ScrollView>

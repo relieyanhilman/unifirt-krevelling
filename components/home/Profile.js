@@ -1,7 +1,8 @@
 import { View, Text, Image } from "react-native";
 import React from "react";
 
-export default function Profile() {
+export default function Profile({ route }) {
+  const { email } = route.params;
   return (
     <View
       style={{
@@ -12,7 +13,7 @@ export default function Profile() {
       }}
     >
       <ProfilePhoto />
-      <ProfileDescription />
+      <ProfileDescription email={email} />
       <ProfileIconEdit />
     </View>
   );
@@ -27,7 +28,7 @@ const ProfilePhoto = () => (
   </View>
 );
 
-const ProfileDescription = () => (
+const ProfileDescription = (props) => (
   <View
     style={{
       display: "flex",
@@ -36,14 +37,20 @@ const ProfileDescription = () => (
       flex: 2,
     }}
   >
-    <View style={{ display: "flex", flexDirection: "row" }}>
-      <Text>iu</Text>
+    <View
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "flex-start",
+      }}
+    >
+      <Text style={{ fontWeight: "bold" }}>{props.email}</Text>
       <Image
         source={require("../../assets/icons/bx_edit.png")}
         style={{ marginLeft: 10 }}
       />
     </View>
-    <Text>iu@gmail.com</Text>
+
     <Text>Bandung, West Java</Text>
   </View>
 );

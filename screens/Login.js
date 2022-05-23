@@ -29,7 +29,7 @@ const Login = ({ navigation }) => {
   const [isSignedIn, setIsSignedIn] = useState(false);
 
   const redirectToHomePage = () => {
-    navigation.navigate("Home");
+    navigation.navigate("Home", { email: email });
   };
   const handleSignUp = () => {
     auth
