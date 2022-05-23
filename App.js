@@ -25,5 +25,5 @@ import AddItinerary from "./screens/AddItinerary";
 import SignUp from "./screens/SignUp";
 
 export default function App() {
-  return <SignUp />;
+  return <RootNavigation />;
 }

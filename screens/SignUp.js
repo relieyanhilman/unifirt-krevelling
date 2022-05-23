@@ -8,11 +8,29 @@ import {
   Button,
   TouchableOpacity,
 } from "react-native";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { Colors } from "react-native/Libraries/NewAppScreen";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
+import { authentication } from "../firebase/firebase";
+const SignUp = ({ navigation }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-const SignUp = () => {
+  const registerUser = () => {
+    createUserWithEmailAndPassword(authentication, email, password)
+      .then((re) => {
+        console.log(re);
+      })
+      .catch((re) => {
+        console.log(re);
+      });
+  };
+
   return (
     <View style={styles.container}>
       <View>
@@ -34,8 +52,9 @@ const SignUp = () => {
           <View style={styles.inputView}>
             <TextInput
               style={styles.TextInput}
-              placeholder="Email or Username"
+              placeholder="Email"
               placeholderTextColor="#b9b9b9"
+              onChangeText={(text) => setEmail(text)}
             />
           </View>
           <View style={styles.inputView}>
@@ -44,6 +63,7 @@ const SignUp = () => {
               placeholder="Password"
               placeholderTextColor="#b9b9b9"
               secureTextEntry={true}
+              onChangeText={(text) => setPassword(text)}
             />
           </View>
           <View style={styles.inputView}>
@@ -54,7 +74,13 @@ const SignUp = () => {
               secureTextEntry={true}
             />
           </View>
-          <TouchableOpacity style={styles.loginBtn}>
+          <TouchableOpacity
+            onPress={() => {
+              registerUser();
+              navigation.navigate("Login");
+            }}
+            style={styles.loginBtn}
+          >
             <Text style={[styles.loginText, styles.fontLogin]}>SIGNUP</Text>
           </TouchableOpacity>
         </ImageBackground>

@@ -20,7 +20,7 @@ import {
   signOut,
 } from "firebase/auth";
 
-const Login = () => {
+const Login = ({ navigation }) => {
   // TEST FIREBASE
 
   const [email, setEmail] = useState("");
@@ -28,6 +28,9 @@ const Login = () => {
 
   const [isSignedIn, setIsSignedIn] = useState(false);
 
+  const redirectToHomePage = () => {
+    navigation.navigate("Home");
+  };
   const handleSignUp = () => {
     auth
       .createUserWithEmailAndPassword(email, password)
@@ -38,22 +41,15 @@ const Login = () => {
       .catch((error) => allert(error.message));
   };
 
-  const registerUser = () => {
-    createUserWithEmailAndPassword(authentication, email, password)
-      .then((re) => {
-        console.log(re);
-      })
-      .catch((re) => {
-        console.log(re);
-      });
-  };
-
   const signInUser = () => {
     signInWithEmailAndPassword(authentication, email, password)
       .then((re) => {
+        console.log("login success");
         setIsSignedIn(true);
+        redirectToHomePage();
       })
       .catch((re) => {
+        console.log("login failed");
         console.log(re);
       });
   };
@@ -61,9 +57,11 @@ const Login = () => {
   const signOutUser = () => {
     signOut(authentication)
       .then((re) => {
+        console.log("logout success");
         setIsSignedIn(false);
       })
       .catch((err) => {
+        console.log("login failed");
         console.log(err);
       });
   };
@@ -112,7 +110,12 @@ const Login = () => {
               <Text style={[styles.loginText, styles.fontLogin]}>LOGIN</Text>
             </TouchableOpacity>
           )}
-          <TouchableOpacity style={styles.registerBtn} onPress={registerUser}>
+          <TouchableOpacity
+            style={styles.registerBtn}
+            onPress={() => {
+              navigation.navigate("SignUp");
+            }}
+          >
             <Text style={[styles.loginText, styles.fontLogin]}>REGISTER</Text>
           </TouchableOpacity>
 
