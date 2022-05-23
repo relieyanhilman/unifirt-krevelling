@@ -8,6 +8,7 @@ import Home from "./screens/Home";
 import Recommendation from "./screens/Recommendation";
 import Login from "./screens/Login";
 import SignUp from "./screens/SignUp";
+import RecommendationJateng from "./screens/RecommendationJateng";
 export default function RootNavigation() {
   const Stack = createNativeStackNavigator();
 
@@ -24,6 +25,7 @@ export default function RootNavigation() {
         <Stack.Screen name="Recommendation" component={Recommendation} />
         <Stack.Screen name="ItineraryLocDate" component={ItineraryLocDate} />
         <Stack.Screen name="AddItinerary" component={AddItinerary} />
+        <Stack.Screen name="RecommendationJateng" component={RecommendationJateng} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -23,7 +23,9 @@ export default function RecommendedPlaces({ navigation }) {
         price={100000}
         rating={4.9}
         reviews={1433}
-        isNavigation={false}
+        navigation={navigation}
+        isNavigation={true}
+        navigationDestination={"RecommendationJateng"}
       />
     </View>
   );

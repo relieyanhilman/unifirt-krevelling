@@ -3,10 +3,10 @@ import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import RecommendedPlaces from "../components/home/RecommendedPlaces";
-import RecommendationInBali from "../components/recommendation/RecommendationInBali";
+// import RecommendationInBali from "../components/recommendation/RecommendationInBali";
 import RecommendationInJateng from "../components/recommendation/RecommendationInJateng"
 
-export default function Recommendation({ navigation }) {
+export default function RecommendationJateng({ navigation }) {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
       <StatusBar style="auto" />
@@ -16,7 +16,7 @@ export default function Recommendation({ navigation }) {
         style={{ flex: 1 }}
       >
         <ScrollView showsVerticalScrollIndicator={false}>
-          <RecommendationInBali />
+          <RecommendationInJateng />
         </ScrollView>
       </ImageBackground>
     </SafeAreaView>
