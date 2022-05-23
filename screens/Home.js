@@ -18,7 +18,7 @@ export default function Home({ navigation }) {
         <ScrollView showsVerticalScrollIndicator={false}>
           <Profile />
           <Discovery navigation={navigation} />
-          <RecommendedPlaces />
+          <RecommendedPlaces navigation={navigation} />
         </ScrollView>
       </ImageBackground>
     </SafeAreaView>

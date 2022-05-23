@@ -28,9 +28,7 @@ export default function Discovery({ navigation }) {
           text={"Recommended Places"}
           backgroundImage={require("../../assets/images/hammock.jpg")}
           icon={require("../../assets/icons/earth1.png")}
-          navigation={navigation}
-          navigationDestination={"Recommendation"}
-          isNavigation={true}
+          isNavigation={false}
         />
         <DiscoveryOption
           text={"Maps"}

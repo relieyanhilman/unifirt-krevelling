@@ -1,13 +1,16 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
-import React from 'react'
-import { LocationOptions } from '../home/RecommendedPlaces'
+import { StyleSheet, Text, View, Image } from "react-native";
+import React from "react";
+import { LocationOptions } from "../home/RecommendedPlaces";
 
 const RecommendationInBali = () => {
   return (
     <View style={{ marginTop: 15, marginHorizontal: 10 }}>
-        <Image source={require("../../assets/images/backButton.png")} style={styles.backButton}/>
-        <Text style={styles.HeaderFont}>Recommended in Bali!</Text>
-        <LocationOptions
+      <Image
+        source={require("../../assets/images/backButton.png")}
+        style={styles.backButton}
+      />
+      <Text style={styles.HeaderFont}>Recommended in Bali!</Text>
+      <LocationOptions
         image={require("../../assets/images/danauBeratan.jpg")}
         location={"Danau Beratan, Bali"}
         price={15000}
@@ -36,19 +39,18 @@ const RecommendationInBali = () => {
         reviews={1433}
       />
     </View>
-  )
-}
+  );
+};
 
-export default RecommendationInBali
+export default RecommendationInBali;
 
 const styles = StyleSheet.create({
-    HeaderFont: {
-        fontSize: 24,
-        fontWeight: '700',
-        color: '#33C0F4',
-        top: -42,
-        left: 50,
-        marginBottom: -20,
-}
-}
-)
+  HeaderFont: {
+    fontSize: 24,
+    fontWeight: "700",
+    color: "#33C0F4",
+    top: -42,
+    left: 50,
+    marginBottom: -20,
+  },
+});

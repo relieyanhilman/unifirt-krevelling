@@ -5,7 +5,7 @@ import { StatusBar } from "expo-status-bar";
 import RecommendedPlaces from "../components/home/RecommendedPlaces";
 import RecommendationInBali from "../components/recommendation/RecommendationInBali";
 
-export default function Recommendation() {
+export default function Recommendation({ navigation }) {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
       <StatusBar style="auto" />
@@ -15,7 +15,7 @@ export default function Recommendation() {
         style={{ flex: 1 }}
       >
         <ScrollView showsVerticalScrollIndicator={false}>
-          <RecommendationInBali/>
+          <RecommendationInBali />
         </ScrollView>
       </ImageBackground>
     </SafeAreaView>
