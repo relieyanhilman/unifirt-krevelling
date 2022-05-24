@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import React from "react";
 
-export default function Discovery({ navigation }) {
+export default function Discovery({ navigation, email }) {
   return (
     <View style={{ marginTop: 15, marginHorizontal: 10 }}>
       <Text style={{ fontSize: 24, fontWeight: "bold", marginBottom: 10 }}>
@@ -21,8 +21,9 @@ export default function Discovery({ navigation }) {
           backgroundImage={require("../../assets/images/monas.jpg")}
           icon={require("../../assets/icons/travel-luggage-1.png")}
           navigation={navigation}
-          navigationDestination={"ItineraryLocDate"}
+          navigationDestination={"Itinerary"}
           isNavigation={true}
+          email={email}
         />
         <DiscoveryOption
           text={"Recommended Places"}
@@ -56,11 +57,14 @@ export default function Discovery({ navigation }) {
 function DiscoveryOption({ navigation, ...props }) {
   const isNavigation = props.isNavigation;
   const navigationDestination = props.navigationDestination;
+  const email = props.email;
   if (isNavigation) {
     return (
       <View style={{ width: "50%", marginBottom: 10 }}>
         <TouchableOpacity
-          onPress={() => navigation.navigate(navigationDestination)}
+          onPress={() =>
+            navigation.navigate(navigationDestination, { email: email })
+          }
           style={{ borderRadius: 15 }}
         >
           <Image

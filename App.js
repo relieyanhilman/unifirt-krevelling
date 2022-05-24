@@ -23,7 +23,9 @@ import RootNavigation from "./navigation";
 import ItineraryLocDate from "./screens/ItineraryLocDate";
 import AddItinerary from "./screens/AddItinerary";
 import SignUp from "./screens/SignUp";
+import Itinerary from "./screens/Itinerary";
 
 export default function App() {
   return <RootNavigation />;
+  // return <RootNavigation />;
 }

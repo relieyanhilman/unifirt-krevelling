@@ -22,7 +22,7 @@ export default function Profile({ route }) {
 const ProfilePhoto = () => (
   <View style={{ flex: 1 }}>
     <Image
-      source={require("../../assets/images/iu.jpg")}
+      source={require("../../assets/images/profile-image.png")}
       style={{ height: 80, width: 80, borderRadius: 15, marginRight: 10 }}
     />
   </View>

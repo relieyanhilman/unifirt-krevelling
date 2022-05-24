@@ -16,8 +16,8 @@ export default function Home({ navigation, route }) {
         style={{ flex: 1 }}
       >
         <ScrollView showsVerticalScrollIndicator={false}>
-          <Profile route={route} />
-          <Discovery navigation={navigation} />
+          <Profile route={route} email={route.params.email} />
+          <Discovery navigation={navigation} email={route.params.email} />
           <RecommendedPlaces navigation={navigation} />
         </ScrollView>
       </ImageBackground>

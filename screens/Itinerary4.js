@@ -11,7 +11,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import ItineraryTop from "../components/inputItinerary/ItineraryTop";
 import ItineraryBottom from "../components/inputItinerary/ItineraryBottom";
-export default function Itinerary({ route, navigation }) {
+export default function Itinerary4({ route, navigation }) {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
       <StatusBar style="auto" />
@@ -27,11 +27,17 @@ export default function Itinerary({ route, navigation }) {
         <Text style={styles.HeaderFont}>Itinerary</Text>
         <ScrollView style={{ marginHorizontal: 10 }}>
           <ItineraryTop
+            // email={route.params.email}
             navigation={navigation}
+            numberItinerary={"Itinerary5"}
             email={route.params.email}
-            numberItinerary={"Itinerary2"}
           />
-          <ItineraryBottom />
+          <ItineraryBottom
+            text1={"Pantai Kuta"}
+            text2={"Danau Beratan"}
+            text3={"Pura Taman Ayun"}
+            text4={""}
+          />
         </ScrollView>
       </ImageBackground>
     </SafeAreaView>
